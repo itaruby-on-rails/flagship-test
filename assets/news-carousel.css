@@ -100,5 +100,15 @@ a:active{
 }
 
 
+/*========= 追加CSS ===============*/
+.slider1 h3{
+color: red;
+}
 
-Resources1× 0.5× 0.25×Rerun
+.slider2 h3{
+color: blue;
+}
+
+.slider3 h3{
+color: green;
+}

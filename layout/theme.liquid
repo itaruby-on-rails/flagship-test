@@ -14,7 +14,7 @@
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'news-carousel.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
-  {{ 'news-carousel.js' | asset_url | script_tag }}
+  {{ 'news-carousel.js' | asset_url | script_tag }} 
 </head>
 <body>
 
@@ -44,6 +44,7 @@
 
   <main role="main">
     {{ content_for_layout }}
+    {% section 'news-carousel' %}
   </main>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
