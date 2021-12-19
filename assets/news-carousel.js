@@ -20,7 +20,6 @@ $('.slider').slick({
       slidesToShow: 1,//スライドを画面に1枚見せる
       slidesToScroll: 1,//1回のスクロールで1枚の写真を移動して見せる
     }
-    
   }
 ]
 });

@@ -1,32 +1,30 @@
 <section>
-
   <h2>{{ section.settings.head }}</h2> 
   <ul class="slider">
   {%- for block in section.blocks -%}
-   {% if block.settings.image1 != blank %} 
-   <li class="slider1">
-  <img class="" src="{{ block.settings.image1 | img_url: 'master'}}" alt=""> 
-  <h3>{{ block.settings.title1 }}</h3>
-  <p>{{ block.settings.text1 }}</p> 
-</li>
- {% elsif block.settings.image2 != blank %}
-  <li class="slider2">
-  <img class="" src="{{ block.settings.image2 | img_url: 'master'}}" alt="">
-   <h3>{{ block.settings.title2 }}</h3>
-  <p>{{ block.settings.text2 }}</p>
- </li>
- {% elsif block.settings.image3 != blank %}
-  <li class="slider3">
-  <img class="" src="{{ block.settings.image3 | img_url: 'master'}}" alt="">
-   <h3>{{ block.settings.title3 }}</h3>
-  <p>{{ block.settings.text3 }}</p>
- </li>
-   {% endif %}
+  {% if block.settings.checkbox == true %}
+    {% if block.settings.image != blank %} 
+      <li class=" {% if block.type == "image" %}slider1 {% elsif block.type == "image2" %} slider2 {% elsif block.type == "image3" %} slider3 {% endif %} ">
+        <img class="" src="{{ block.settings.image | img_url: 'master'}}" alt=""> 
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p> 
+      </li>
+    {% endif %}
+  {% endif %}
+  {% endfor %}
+  {%- for block in section.blocks -%}
+  {% if block.settings.checkbox == false %}
+    {% if block.settings.image != blank %} 
+      <li class=" {% if block.type == "image" %}slider1 {% elsif block.type == "image2" %} slider2 {% elsif block.type == "image3" %} slider3 {% endif %} ">
+        <img class="" src="{{ block.settings.image | img_url: 'master'}}" alt=""> 
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p> 
+      </li>
+    {% endif %}
+  {% endif %}
   {% endfor %} 
-</ul>
-
-
-  </section>
+  </ul>
+</section>
 
 
   {% schema %}
@@ -47,22 +45,22 @@
     "settings": [
     {
   "type": "image_picker", 
-  "id": "image1",
+  "id": "image",
    "label": "Image"
     },
  { 
    "type": "text", 
-   "id": "title1", 
+   "id": "title", 
    "label": "Title"
   },
  { 
    "type": "textarea", 
-   "id": "text1", 
+   "id": "text", 
    "label": "Description"
   },
  {
    "type": "checkbox",
-    "id": "checkbox1", 
+    "id": "checkbox", 
     "label": "Featured"
 }
 ]
@@ -73,22 +71,22 @@
     "settings": [
     {
   "type": "image_picker", 
-  "id": "image2",
+  "id": "image",
    "label": "Image"
     },
  { 
    "type": "text", 
-   "id": "title2", 
+   "id": "title", 
    "label": "Title"
   },
  { 
    "type": "textarea", 
-   "id": "text2", 
+   "id": "text", 
    "label": "Description"
   },
  {
    "type": "checkbox",
-    "id": "checkbox2", 
+    "id": "checkbox", 
     "label": "Featured"
 }
 ]
@@ -99,22 +97,22 @@
     "settings": [
     {
   "type": "image_picker", 
-  "id": "image3",
+  "id": "image",
    "label": "Image"
     },
  { 
    "type": "text", 
-   "id": "title3", 
+   "id": "title", 
    "label": "Title"
   },
  { 
    "type": "textarea", 
-   "id": "text3", 
+   "id": "text", 
    "label": "Description"
   },
  {
    "type": "checkbox",
-    "id": "checkbox3", 
+    "id": "checkbox", 
     "label": "Featured"
 }
 ]
