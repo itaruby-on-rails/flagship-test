@@ -1,0 +1,74 @@
+<section>
+
+  <h2>{{ section.settings.head }}</h2> 
+  <ul class="slider">
+  {%- for block in section.blocks -%}
+   {% if block.settings.image1 != blank %} 
+   <li class="slider1">
+  <img class="" src="{{ block.settings.image1 | img_url: 'master'}}" alt=""> 
+  <h3>{{ block.settings.title1 }}</h3>
+  <p>{{ block.settings.text1 }}</p> 
+</li>
+ {% elsif block.settings.image2 != blank %}
+  <li class="slider2">
+  <img class="" src="{{ block.settings.image2 | img_url: 'master'}}" alt="">
+   <h3>{{ block.settings.title2 }}</h3>
+  <p>{{ block.settings.text2 }}</p>
+ </li>
+ {% elsif block.settings.image3 != blank %}
+  <li class="slider3">
+  <img class="" src="{{ block.settings.image3 | img_url: 'master'}}" alt="">
+   <h3>{{ block.settings.title3 }}</h3>
+  <p>{{ block.settings.text3 }}</p>
+ </li>
+   {% endif %}
+  {% endfor %} 
+</ul>
+
+  </section>
+
+
+  {% schema %}
+  {"name": "News Carousel",
+   "class": "news-carousel",
+    "max_blocks": 6,
+     "settings": [
+     {
+  "type": "text", 
+  "id": "head", 
+  "label": "Head"
+     }
+    ],
+  "blocks": [
+  {
+  "type": "image",
+   "name": "campaign",
+    "settings": [
+    {
+  "type": "image_picker", 
+  "id": "image1",
+   "label": "Image"
+    },
+ { 
+   "type": "text", 
+   "id": "title1", 
+   "label": "Title"
+  },
+ { 
+   "type": "textarea", 
+   "id": "text1", 
+   "label": "Description"
+  },
+ {
+   "type": "checkbox",
+    "id": "checkbox1", 
+    "label": "Featured"
+}
+]
+}
+],
+"presets": [{
+"name": "Women Collection Slider"
+}]
+}
+  {% endschema %}
