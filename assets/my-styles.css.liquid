@@ -1,0 +1,39 @@
+.my-container {
+  display: flex;
+}
+
+.my-container__content {
+flex: 1 1 auto;
+}
+
+/*  デフォルトでは非表示*/
+.my-container__cart {
+display: none;
+}
+
+/*  クラスが付与されたら表示(cartが空でない時）*/
+body.js-my-cart-open .my-container__cart {
+flex: 0 0 300px;
+  padding: 15px;
+  display: block;
+}
+
+/* 右上のcartセクションで数量変えたら、右上のcartセクションを薄くする。 */
+body.js-ajax-cart-request-in-progress .my-cart_items {
+	opacity: .5;
+}
+
+/* Add to cart押したら、右上のcartセクションを薄くする。 */
+form[action="/cart/add"].js-ajax-cart-form-in-progress [type="submit"] {
+  opacity: .5;  
+}
+
+/* cartが空ならCARTタイトル非表示 */
+body.js-ajax-cart-empty .my-cart h2 {
+	display: none;
+}
+
+/* cartが空でないならCARTタイトル表示 */
+body.js-ajax-cart-not-empty .my-cart h2 {
+	display: block;
+}
