@@ -1,129 +1,126 @@
-
 <section>
-  
-  <h2>{{ section.settings.head }}</h2>
+
+  <h2>{{ section.settings.head }}</h2> 
   <ul class="slider">
-     {%- for block in section.blocks -%}
-    {% if block.settings.image1 != black %}
-      <li class="slider1">
-        <img class="" src="{{ block.settings.image1 | img_url: 'master'}}" alt="">
-        <h3>{{ block.settings.title1 }}</h3>
-        <p>{{ block.settings.text1 }}</p>
-      </li>
-    {% elsif block.settings.image2 != black %}
-      <li class="slider2">
-        <img class="" src="{{ block.settings.image2 | img_url: 'master'}}" alt="">
-        <h3>{{ block.settings.title2 }}</h3>
-        <p>{{ block.settings.text2 }}</p>
-      </li>
-     {% elsif block.settings.image3 != black %}
-      <li class="slider3">
-        <img class="" src="{{ block.settings.image3 | img_url: 'master'}}" alt="">
-        <h3>{{ block.settings.title3 }}</h3>
-        <p>{{ block.settings.text3 }}</p>
-      </li>
-     {% endif %}
-     {% endfor %}
-  </ul>
+  {%- for block in section.blocks -%}
+   {% if block.settings.image1 != blank %} 
+   <li class="slider1">
+  <img class="" src="{{ block.settings.image1 | img_url: 'master'}}" alt=""> 
+  <h3>{{ block.settings.title1 }}</h3>
+  <p>{{ block.settings.text1 }}</p> 
+</li>
+ {% elsif block.settings.image2 != blank %}
+  <li class="slider2">
+  <img class="" src="{{ block.settings.image2 | img_url: 'master'}}" alt="">
+   <h3>{{ block.settings.title2 }}</h3>
+  <p>{{ block.settings.text2 }}</p>
+ </li>
+ {% elsif block.settings.image3 != blank %}
+  <li class="slider3">
+  <img class="" src="{{ block.settings.image3 | img_url: 'master'}}" alt="">
+   <h3>{{ block.settings.title3 }}</h3>
+  <p>{{ block.settings.text3 }}</p>
+ </li>
+   {% endif %}
+  {% endfor %} 
+</ul>
 
-  
-</section>
+  </section>
 
-{% schema %}
-{
-  "name": "News Carousel",
-  "class": "news-carousel",
-  "max_blocks": 6,
-  "settings": [
-  {
-          "type": "text",
-          "id": "head",
-          "label": "Head"
-    }
-  ],
+
+  {% schema %}
+  {"name": "News Carousel",
+   "class": "news-carousel",
+    "max_blocks": 6,
+     "settings": [
+     {
+  "type": "text", 
+  "id": "head", 
+  "label": "Head"
+     }
+    ],
   "blocks": [
+  {
+  "type": "image",
+   "name": "campaign",
+    "settings": [
     {
-      "type": "image",
-      "name": "campaign",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image1",
-          "label": "Image"
-        },
-    {
-          "type": "text",
-          "id": "title1",
-          "label": "Title"
-        },
-    {
-          "type": "textarea",
-          "id": "text1",
-          "label": "Description"
-        },
-    {
-          "type": "checkbox",
-          "id": "checkbox1",
-          "label": "Featured"
-        }
-      ]
+  "type": "image_picker", 
+  "id": "image1",
+   "label": "Image"
     },
-   {
-      "type": "image2",
-      "name": "new-product",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image2",
-          "label": "Image"
-        },
-    {
-          "type": "text",
-          "id": "title2",
-          "label": "Title"
-        },
-    {
-          "type": "textarea",
-          "id": "checkbox2",
-          "label": "Description"
-        },
-      {
-          "type": "textarea",
-          "id": "text1",
-          "label": "Featured"
-        }
-      ]
-    },
+ { 
+   "type": "text", 
+   "id": "title1", 
+   "label": "Title"
+  },
+ { 
+   "type": "textarea", 
+   "id": "text1", 
+   "label": "Description"
+  },
  {
-      "type": "image3",
-      "name": "news",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image3",
-          "label": "Image"
-        },
-    {
-          "type": "text",
-          "id": "title3",
-          "label": "Title"
-        },
-    {
-          "type": "textarea",
-          "id": "text3",
-          "label": "Description"
-        },
-   {
-          "type": "textarea",
-          "id": "checkbox3",
-          "label": "Featured"
-        }
-      ]
-    }
-  ],
-  "presets": [{
-    "name": "News Carousel"
-  }]
+   "type": "checkbox",
+    "id": "checkbox1", 
+    "label": "Featured"
 }
-{% endschema %}
-
+]
+},
+  {
+  "type": "image2",
+   "name": "new-product",
+    "settings": [
+    {
+  "type": "image_picker", 
+  "id": "image2",
+   "label": "Image"
+    },
+ { 
+   "type": "text", 
+   "id": "title2", 
+   "label": "Title"
+  },
+ { 
+   "type": "textarea", 
+   "id": "text2", 
+   "label": "Description"
+  },
+ {
+   "type": "checkbox",
+    "id": "checkbox2", 
+    "label": "Featured"
+}
+]
+},
+  {
+  "type": "image3",
+   "name": "news",
+    "settings": [
+    {
+  "type": "image_picker", 
+  "id": "image3",
+   "label": "Image"
+    },
+ { 
+   "type": "text", 
+   "id": "title3", 
+   "label": "Title"
+  },
+ { 
+   "type": "textarea", 
+   "id": "text3", 
+   "label": "Description"
+  },
+ {
+   "type": "checkbox",
+    "id": "checkbox3", 
+    "label": "Featured"
+}
+]
+}
+],
+"presets": [{
+"name": "News Carousel"
+}]
+}
+  {% endschema %}
