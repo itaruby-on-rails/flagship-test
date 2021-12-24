@@ -10,14 +10,9 @@
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
-  {{ 'my-styles.css' | asset_url | stylesheet_tag }}
-
 </head>
 <body>
 
-  <div class="my-container">
-      <div class="my-container__content">
-        
   {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
     {% if linklists[child_list_handle].links != blank %}
@@ -30,8 +25,7 @@
     {% endif %}
   {% endfor %}
   
-<!--         クラスが付与されたら表示(cartが空でない時） -->
-  <a href="/cart" data-ajax-cart-toggle-class-button="js-my-cart-open">cart</a>
+  <a href="/cart">cart</a>
 
   {% if shop.customer_accounts_enabled %}
     {% if customer %}
@@ -46,21 +40,5 @@
   <main role="main">
     {{ content_for_layout }}
   </main>
-        
-    </div>
-    
-    <div class="my-container__cart">
-      {% section 'my-cart' %}
-    </div>   
-  </div> 
-
-<script type="application/json" data-ajax-cart-initial-state >
-  {{ cart | json }}
-</script>
- 
-<script type="module">
-  import '{{ "liquid-ajax-cart-v1.6.0.js" | asset_url }}';
-</script>
-  
 </body>
 </html>
