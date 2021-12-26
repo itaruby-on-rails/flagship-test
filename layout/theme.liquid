@@ -10,6 +10,9 @@
   {{ content_for_header }} <!-- Header hook for plugins -->
   {{ 'application.css' | asset_url | stylesheet_tag }}
   {{ 'application.js' | asset_url | script_tag }}
+  {{ 'modal.css' | asset_url | stylesheet_tag }}
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
 </head>
 <body>
 
@@ -39,6 +42,25 @@
 
   <main role="main">
     {{ content_for_layout }}
+
+    {% if template == 'product' %}
+    <script>
+var v = document.getElementById("video");
+$(function(){
+window.onload = function(){
+$('.modal').fadeIn();
+return false;
+}
+$('.close-btn').on('click',function(){
+v.pause();
+$('.modal').fadeOut();
+return false;
+});
+});
+</script>
+
+    
+      {% endif %}
   </main>
 
 </body>

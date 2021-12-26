@@ -25,5 +25,73 @@
   <label for="Quantity">quantity</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1">
   <button type="submit" name="add" id="AddToCart">Add to cart</button>
+  
+   <div class="modal ">
+<div class="modal-bg close-btn"></div>
+<div class="modal-box">
+<div style="text-align: right">
+<a class="close-btn" href="">×</a> 
+</div>
+<video width="100%" id="video" controls poster="image/thumb.png">
+  <div width="100%"  controls poster="image/thumb.png">
+</div>
+</video>
+  <style>
+.sd-items-count p { color:#ff2200; font-size:15px; padding:7px 0; margin:0; }
+.sd-items-count img { float:left; width:20px !important;height:auto !important;margin:0 7px 0 0; padding:0; }
+</style>
+{% assign product_qty = 0 %}
+{% for variant in product.variants %}
+{% if variant.inventory_quantity > 0 %}
+{% assign product_qty = product_qty | plus: variant.inventory_quantity %}
+{% endif %}
+{% endfor %}
+{% if product_qty > 0 %}
+<div class="sd-items-count">          
+<p><img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDM5LjQxMSAzOS40MTEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM5LjQxMSAzOS40MTE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxnPgoJCTxnPgoJCQk8cGF0aCBkPSJNMTkuNzA2LDIzLjQxMWMtMC4wNzYsMC0wLjE1My0wLjAxOC0wLjIyNC0wLjA1M0wzLjYzNywxNS40MzdjLTAuMTY5LTAuMDg1LTAuMjc2LTAuMjU4LTAuMjc2LTAuNDQ3ICAgICBzMC4xMDctMC4zNjIsMC4yNzYtMC40NDdsMTIuNjMyLTYuMzE1YzAuMjQ3LTAuMTIzLDAuNTQ3LTAuMDI0LDAuNjcxLDAuMjI0YzAuMTIzLDAuMjQ3LDAuMDIzLDAuNTQ3LTAuMjI0LDAuNjcxTDQuOTc5LDE0Ljk4OSAgICAgbDE0LjcyNyw3LjM2M2wxNC43MjctNy4zNjNsLTExLjU4LTUuNzljLTAuMjQ3LTAuMTI0LTAuMzQ3LTAuNDI0LTAuMjI0LTAuNjcxYzAuMTI1LTAuMjQ3LDAuNDI1LTAuMzQ1LDAuNjcxLTAuMjI0bDEyLjQ3NSw2LjIzNyAgICAgYzAuMTY5LDAuMDg1LDAuMjc2LDAuMjU4LDAuMjc2LDAuNDQ3cy0wLjEwNywwLjM2Mi0wLjI3NiwwLjQ0N2wtMTUuODQ1LDcuOTIyQzE5Ljg1OSwyMy4zOTQsMTkuNzgyLDIzLjQxMSwxOS43MDYsMjMuNDExeiIgZmlsbD0iIzAwMDAwMCIvPgoJCQk8cGF0aCBkPSJNMTkuNzA2LDM5LjQxMWMtMC4wNzYsMC0wLjE1My0wLjAxOC0wLjIyNC0wLjA1M0wzLjYzNywzMS40MzdjLTAuMjQ3LTAuMTI0LTAuMzQ3LTAuNDI0LTAuMjI0LTAuNjcxICAgICBjMC4xMjUtMC4yNDcsMC40MjQtMC4zNDUsMC42NzEtMC4yMjRsMTUuNjIxLDcuODFsMTUuNjIxLTcuODFjMC4yNDgtMC4xMjIsMC41NDctMC4wMjMsMC42NzEsMC4yMjQgICAgIGMwLjEyMywwLjI0NywwLjAyMywwLjU0Ny0wLjIyNCwwLjY3MWwtMTUuODQ1LDcuOTIyQzE5Ljg1OSwzOS4zOTQsMTkuNzgyLDM5LjQxMSwxOS43MDYsMzkuNDExeiIgZmlsbD0iIzAwMDAwMCIvPgoJCQk8cGF0aCBkPSJNMzUuNTUsMzEuNDg5Yy0wLjI3NiwwLTAuNS0wLjIyNC0wLjUtMC41di0xNmMwLTAuMjc2LDAuMjI0LTAuNSwwLjUtMC41czAuNSwwLjIyNCwwLjUsMC41djE2ICAgICBDMzYuMDUsMzEuMjY2LDM1LjgyNywzMS40ODksMzUuNTUsMzEuNDg5eiIgZmlsbD0iIzAwMDAwMCIvPgoJCQk8cGF0aCBkPSJNMTkuNzA2LDM5LjQxMWMtMC4yNzYsMC0wLjUtMC4yMjQtMC41LTAuNXYtMTZjMC0wLjI3NiwwLjIyNC0wLjUsMC41LTAuNXMwLjUsMC4yMjQsMC41LDAuNXYxNiAgICAgQzIwLjIwNiwzOS4xODgsMTkuOTgyLDM5LjQxMSwxOS43MDYsMzkuNDExeiIgZmlsbD0iIzAwMDAwMCIvPgoJCQk8cGF0aCBkPSJNMy44NjEsMzEuNDg5Yy0wLjI3NiwwLTAuNS0wLjIyNC0wLjUtMC41di0xNmMwLTAuMjc2LDAuMjI0LTAuNSwwLjUtMC41czAuNSwwLjIyNCwwLjUsMC41djE2ICAgICBDNC4zNjEsMzEuMjY2LDQuMTM3LDMxLjQ4OSwzLjg2MSwzMS40ODl6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPC9nPgoJPC9nPgoJPGc+CgkJPHBhdGggZD0iTTE5LjcwNiwxMy4yMzhjLTAuMjc2LDAtMC41LTAuMjI0LTAuNS0wLjVWMC41YzAtMC4yNzYsMC4yMjQtMC41LDAuNS0wLjVzMC41LDAuMjI0LDAuNSwwLjV2MTIuMjM4ICAgIEMyMC4yMDYsMTMuMDE1LDE5Ljk4MiwxMy4yMzgsMTkuNzA2LDEzLjIzOHoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMjQuNTU1LDUuODVjLTAuMTI4LDAtMC4yNTYtMC4wNDktMC4zNTQtMC4xNDZsLTQuNDk1LTQuNDk2bC00LjQ5Nyw0LjQ5NmMtMC4xOTUsMC4xOTUtMC41MTIsMC4xOTUtMC43MDcsMCAgICBzLTAuMTk1LTAuNTEyLDAtMC43MDdsNC44NTEtNC44NUMxOS40NDcsMC4wNTMsMTkuNTc0LDAsMTkuNzA3LDBsMCwwYzAuMTMzLDAsMC4yNiwwLjA1MywwLjM1NCwwLjE0Nmw0Ljg0OSw0Ljg1ICAgIGMwLjE5NSwwLjE5NSwwLjE5NSwwLjUxMiwwLDAuNzA3QzI0LjgxMSw1LjgwMSwyNC42ODMsNS44NSwyNC41NTUsNS44NXoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units left in stock.</p>
+</div>
+{% endif %}
+  	 <thead>
+        <th colspan="2">Product</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>total</th>
+       <br>
+      </thead>
+        <tbody>
+        {% for item in cart.items %}
+          <tr>
+             <td>
+          <!--      for cart_index          -->
+             {% for property in item.properties %}
+    		{{ property.first }}: {{ property.last }}
+  			{% endfor %}
+          <!--      for cart_index          -->
+             </td>
+            <td>
+              <a href="{{ item.url }}">{{ item.product.title }}</a>
+              {{ item.variant.title }}
+            </td>
+            <td>{{ item.price | money }}</td>
+            <td>
+              {{ item.quantity }}
+            </td>
+            <td>
+              {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
+              {{ item.line_price | money }}
+              {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+            </td>
+            <br>
+            
+          </tr>
+        {% endfor %}
+                <p>sub total : {{ cart.total_price | money }}</p>
+
+      </tbody>
+
+</div>
+</div>
+  
 </form>
 <div>{{ product.description }}</div>
