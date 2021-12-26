@@ -31,3 +31,7 @@
   video {
   display: none;
   }
+
+.modal-td td{
+padding: 20px;
+}
