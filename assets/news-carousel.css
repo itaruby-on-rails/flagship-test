@@ -77,30 +77,10 @@ EDIT ON
 /*========= レイアウトのためのCSS ===============*/
 
 
-/* body{
-  background:#eee;
+ body{
 }
 
-h2,p {
-    text-align:center;
-    padding:20px;
-}
 
-ul{
-  margin:0;
-  padding: 0;
-  list-style: none;
-}
-
-a{
-  color: #333;
-}
-
-a:hover,
-a:active{
-  text-decoration: none;
-}
- */
 
 /*========= 追加CSS ===============*/
 .slider1 h3{
