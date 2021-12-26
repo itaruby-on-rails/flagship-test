@@ -1,6 +1,53 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "news-carousel": {
+        "type": "news-carousel",
+        "blocks": {
+          "db1b7d98-97fc-46c5-a86a-3b76494036e9": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_01.jpg",
+              "title": "",
+              "text": "",
+              "checkbox": false
+            }
+          },
+          "7500b77d-0fc0-4cfb-8dd0-3d7399410f10": {
+            "type": "image2",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_02.jpg",
+              "title": "",
+              "text": "",
+              "checkbox": false
+            }
+          },
+          "727ff83c-0e0b-4458-874e-b57bcf45b56b": {
+            "type": "image3",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/img_03.jpg",
+              "title": "",
+              "text": "",
+              "checkbox": false
+            }
+          }
+        },
+        "block_order": [
+          "db1b7d98-97fc-46c5-a86a-3b76494036e9",
+          "7500b77d-0fc0-4cfb-8dd0-3d7399410f10",
+          "727ff83c-0e0b-4458-874e-b57bcf45b56b"
+        ],
+        "settings": {
+          "head": ""
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": { }
+    "Default": {
+    }
   }
 }
