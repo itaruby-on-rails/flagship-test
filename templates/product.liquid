@@ -46,7 +46,8 @@
     {% endif %}
    </span>
     </button> 
-  
+</form>
+ 
    <div class="modal ">
 <div class="modal-bg close-btn"></div>
 <div class="modal-box">
@@ -107,7 +108,7 @@ There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units
             
           </tr>
         {% endfor %}
-                <p>sub total : {{ cart.total_price | money }}</p>
+                <p>total : {{ cart.total_price | money }}</p>
 
       </tbody>
 
@@ -115,7 +116,6 @@ There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units
 </div>
 >>>>>>> c
   
-</form>
 <div>{{ product.description }}</div>
 
 
