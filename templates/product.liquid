@@ -8,6 +8,8 @@
 {% endfor %}
 <h1>{{ product.title }}</h1>
 <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
+  
+  {% comment %}
   <select name="id" id="productSelect">
     {% for variant in product.variants %}
       {% if variant.available %}
@@ -21,10 +23,65 @@
       {% endif %}
     {% endfor %}
   </select>
+  {% endcomment %}
+  
   {{ current_variant.price | money }}
-  <label for="Quantity">quantity</label>
-  <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
+<!--   <label for="Quantity">quantity</label>
+  <input type="number" id="Quantity" name="quantity" value="1" min="1"> -->
+<!--   <button type="submit" name="add" id="AddToCart">Add to cart</button> -->
+  
+  {{ 'add-to-cart.js' | asset_url | script_tag }}
+
+  <button
+   type="button"
+   class="button button--full-width button--secondary"
+   onclick="buttonClick({{ product.selected_or_first_available_variant.id }},{{ cart.item_count}})"
+   {% if product.selected_or_first_available_variant.available == false %} disabled {% endif %}
+   >
+   <span>
+   {% if product.selected_or_first_available_variant.available == false %}
+   Sold Out
+   {% else %}
+    Add to Cart
+    {% endif %}
+   </span>
+    </button> 
   
 </form>
 <div>{{ product.description }}</div>
+
+
+ {% if product.selected_or_first_available_variant.available == false %}
+
+   <style>
+      .button--secondary {
+ background: gray;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 18px;
+}
+    
+  </style>
+
+ {% else %}
+
+   <style>
+     .button--secondary {
+ background: #8fcb8f;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+     
+     .button--secondary:hover {
+ background: skyblue;
+ transition: all 0.3s ease;
+}
+     
+  </style>
+
+ {% endif %}
+
+
+
