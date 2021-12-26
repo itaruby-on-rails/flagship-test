@@ -26,8 +26,10 @@
   {{ 'add-to-cart.css' | asset_url | stylesheet_tag }}
   {{ 'add-to-cart.js' | asset_url | script_tag }}
   <!-- for branch a -->
+  <!-- for branch c -->
   {{ 'modal.css' | asset_url | stylesheet_tag }}
   <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+  <!-- for branch c -->
 
 </head>
 <body>
@@ -56,6 +58,7 @@
     {% endif %}
   {% endif %}
 
+  <!-- for branch c -->
   <main role="main">
     {{ content_for_layout }}
 
@@ -74,7 +77,7 @@ return false;
 });
 });
 </script>
-
+  <!-- for branch c -->
     
       {% endif %}
   </main>
