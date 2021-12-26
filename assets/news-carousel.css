@@ -77,7 +77,7 @@ EDIT ON
 /*========= レイアウトのためのCSS ===============*/
 
 
-body{
+/* body{
   background:#eee;
 }
 
@@ -100,7 +100,7 @@ a:hover,
 a:active{
   text-decoration: none;
 }
-
+ */
 
 /*========= 追加CSS ===============*/
 .slider1 h3{
