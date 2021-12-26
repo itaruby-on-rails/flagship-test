@@ -6,6 +6,6 @@ input[type="checkbox"]:checked + .checked{
   display:block !important;
 }
 
-tr td:ntc-child(n + 2) {
+tr td:nth-child(n + 2) {
 margin-left: 30px;
 }
