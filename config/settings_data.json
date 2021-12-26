@@ -50,6 +50,12 @@
         "settings": {
           "head": "News Carousel"
         }
+      },
+      "cart-section": {
+        "type": "cart-section",
+        "settings": {
+          "check": true
+        }
       }
     },
     "content_for_index": [
