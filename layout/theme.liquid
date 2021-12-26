@@ -12,7 +12,6 @@
   {{ 'application.js' | asset_url | script_tag }}
 </head>
 <body>
-  fdfdfdfdfdf
 
   {% for link in linklists.main-menu.links %}
     {% assign child_list_handle = link.title | handleize %}
@@ -25,7 +24,7 @@
       <a href="{{ link.url }}">{{ link.title }}</a>
     {% endif %}
   {% endfor %}
-
+  
   <a href="/cart">cart</a>
 
   {% if shop.customer_accounts_enabled %}
@@ -41,5 +40,6 @@
   <main role="main">
     {{ content_for_layout }}
   </main>
+
 </body>
 </html>
