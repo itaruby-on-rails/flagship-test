@@ -94,7 +94,7 @@ There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units
       </thead>
         <tbody>
         {% for item in cart.items %}
-          <tr class="modal">
+          <tr>
              <td>
           <!--      for cart_index          -->
              {% for property in item.properties %}
@@ -102,15 +102,15 @@ There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units
   			{% endfor %}
           <!--      for cart_index          -->
              </td>
-            <td style="padding-left: 20px;">
+            <td>
               <a href="{{ item.url }}">{{ item.product.title }}</a>
               {{ item.variant.title }}
             </td>
             <td>{{ item.price | money }}</td>
-            <td style="padding-left: 20px;">
+            <td>
               {{ item.quantity }}
             </td>
-            <td style="padding-left: 20px;">
+            <td>
               {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
               {{ item.line_price | money }}
               {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
