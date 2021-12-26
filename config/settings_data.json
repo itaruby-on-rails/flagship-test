@@ -8,8 +8,8 @@
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/img_01.jpg",
-              "title": "",
-              "text": "",
+              "title": "campaign",
+              "text": "campaigncampaigncampaigncampaigncampaign",
               "checkbox": false
             }
           },
@@ -17,8 +17,8 @@
             "type": "image2",
             "settings": {
               "image": "shopify:\/\/shop_images\/img_02.jpg",
-              "title": "",
-              "text": "",
+              "title": "new-product",
+              "text": "new-productnew-productnew-productnew-productnew-product",
               "checkbox": false
             }
           },
@@ -26,18 +26,18 @@
             "type": "image3",
             "settings": {
               "image": "shopify:\/\/shop_images\/img_03.jpg",
-              "title": "",
-              "text": "",
-              "checkbox": false
+              "title": "news",
+              "text": "newsnewsnewsnewsnewsnews",
+              "checkbox": true
             }
           },
           "5bc9cdaf-0907-4d51-a56c-3f593ad37f5c": {
             "type": "image",
             "settings": {
               "image": "shopify:\/\/shop_images\/img_01.jpg",
-              "title": "",
-              "text": "",
-              "checkbox": false
+              "title": "campaign",
+              "text": "campaigncampaigncampaigncampaign",
+              "checkbox": true
             }
           }
         },
