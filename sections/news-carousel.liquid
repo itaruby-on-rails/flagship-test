@@ -1,0 +1,125 @@
+<section>
+  <h2>{{ section.settings.head }}</h2> 
+  <ul class="slider">
+  {%- for block in section.blocks -%}
+  {% if block.settings.checkbox == true %}
+    {% if block.settings.image != blank %} 
+      <li class=" {% if block.type == "image" %}slider1 {% elsif block.type == "image2" %} slider2 {% elsif block.type == "image3" %} slider3 {% endif %} ">
+        <img class="" src="{{ block.settings.image | img_url: 'master'}}" alt=""> 
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p> 
+      </li>
+    {% endif %}
+  {% endif %}
+  {% endfor %}
+  {%- for block in section.blocks -%}
+  {% if block.settings.checkbox == false %}
+    {% if block.settings.image != blank %} 
+      <li class=" {% if block.type == "image" %}slider1 {% elsif block.type == "image2" %} slider2 {% elsif block.type == "image3" %} slider3 {% endif %} ">
+        <img class="" src="{{ block.settings.image | img_url: 'master'}}" alt=""> 
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p> 
+      </li>
+    {% endif %}
+  {% endif %}
+  {% endfor %} 
+  </ul>
+</section>
+
+
+  {% schema %}
+  {"name": "News Carousel",
+   "class": "news-carousel",
+    "max_blocks": 6,
+     "settings": [
+     {
+  "type": "text", 
+  "id": "head", 
+  "label": "Head"
+     }
+    ],
+  "blocks": [
+  {
+  "type": "image",
+   "name": "campaign",
+    "settings": [
+    {
+  "type": "image_picker", 
+  "id": "image",
+   "label": "Image"
+    },
+ { 
+   "type": "text", 
+   "id": "title", 
+   "label": "Title"
+  },
+ { 
+   "type": "textarea", 
+   "id": "text", 
+   "label": "Description"
+  },
+ {
+   "type": "checkbox",
+    "id": "checkbox", 
+    "label": "Featured"
+}
+]
+},
+  {
+  "type": "image2",
+   "name": "new-product",
+    "settings": [
+    {
+  "type": "image_picker", 
+  "id": "image",
+   "label": "Image"
+    },
+ { 
+   "type": "text", 
+   "id": "title", 
+   "label": "Title"
+  },
+ { 
+   "type": "textarea", 
+   "id": "text", 
+   "label": "Description"
+  },
+ {
+   "type": "checkbox",
+    "id": "checkbox", 
+    "label": "Featured"
+}
+]
+},
+  {
+  "type": "image3",
+   "name": "news",
+    "settings": [
+    {
+  "type": "image_picker", 
+  "id": "image",
+   "label": "Image"
+    },
+ { 
+   "type": "text", 
+   "id": "title", 
+   "label": "Title"
+  },
+ { 
+   "type": "textarea", 
+   "id": "text", 
+   "label": "Description"
+  },
+ {
+   "type": "checkbox",
+    "id": "checkbox", 
+    "label": "Featured"
+}
+]
+}
+],
+"presets": [{
+"name": "News Carousel"
+}]
+}
+  {% endschema %}
