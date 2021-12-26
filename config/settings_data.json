@@ -54,7 +54,7 @@
       "cart-section": {
         "type": "cart-section",
         "settings": {
-          "check": true
+          "check": false
         }
       }
     },
