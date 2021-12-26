@@ -5,3 +5,7 @@
 input[type="checkbox"]:checked + .checked{
   display:block !important;
 }
+
+td {
+padding: 20px;
+}
