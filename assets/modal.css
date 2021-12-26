@@ -1,0 +1,33 @@
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999999;
+  }
+  .close-btn{
+  text-align: right;
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: #666;
+  }
+  .modal-bg{
+  background: rgba(0,0,0,0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  }
+  .modal-box{
+  background: #fff;
+  left: 50%;
+  padding: 16px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 65%;
+  }
+  
+  video {
+  display: none;
+  }

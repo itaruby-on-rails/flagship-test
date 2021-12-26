@@ -19,6 +19,7 @@
   {{ 'application.js' | asset_url | script_tag }}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   {{ 'add-to-cart.js' | asset_url | script_tag }}
 
 =======
@@ -33,6 +34,10 @@
   {{ 'add-to-cart.js' | asset_url | script_tag }}
   <!-- for branch a -->
 >>>>>>> a
+=======
+  {{ 'modal.css' | asset_url | stylesheet_tag }}
+  <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+>>>>>>> c
 
 </head>
 <body>
@@ -63,12 +68,34 @@
 
   <main role="main">
     {{ content_for_layout }}
+
+    {% if template == 'product' %}
+    <script>
+var v = document.getElementById("video");
+$(function(){
+window.onload = function(){
+$('.modal').fadeIn();
+return false;
+}
+$('.close-btn').on('click',function(){
+v.pause();
+$('.modal').fadeOut();
+return false;
+});
+});
+</script>
+
+    
+      {% endif %}
   </main>
 
+<<<<<<< HEAD
   <!-- for branch b -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-6/js/6-1-6.js"></script>
   <!-- for branch b -->
+=======
+>>>>>>> c
 </body>
 </html>
