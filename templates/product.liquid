@@ -8,7 +8,8 @@
 {% endfor %}
 <h1>{{ product.title }}</h1>
 <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-  
+ 
+     <!--  selecter comment out -->
   {% comment %}
   <select name="id" id="productSelect">
     {% for variant in product.variants %}
@@ -24,14 +25,15 @@
     {% endfor %}
   </select>
   {% endcomment %}
+    <!--  selecter comment out -->
   
   {{ current_variant.price | money }}
 <!--   <label for="Quantity">quantity</label>
   <input type="number" id="Quantity" name="quantity" value="1" min="1"> -->
 <!--   <button type="submit" name="add" id="AddToCart">Add to cart</button> -->
   
-  {{ 'add-to-cart.js' | asset_url | script_tag }}
-
+  
+  <!-- for branch a -->
   <button
    type="button"
    class="button button--full-width button--secondary"
@@ -46,8 +48,11 @@
     {% endif %}
    </span>
     </button> 
+   <!-- for branch a -->
+
 </form>
  
+    <!------------------------ for branch c -------------------------------------------->
    <div class="modal ">
 <div class="modal-bg close-btn"></div>
 <div class="modal-box">
@@ -58,6 +63,8 @@
   <div width="100%"  controls poster="image/thumb.png">
 </div>
 </video>
+  
+  <!-- show product inventory -->
   <style>
 .sd-items-count p { color:#ff2200; font-size:15px; padding:7px 0; margin:0; }
 .sd-items-count img { float:left; width:20px !important;height:auto !important;margin:0 7px 0 0; padding:0; }
@@ -74,6 +81,9 @@
 There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units left in stock.</p>
 </div>
 {% endif %}
+  <!-- show product inventory END-->
+
+   <!--  information about the current user cart -->
   	 <thead>
         <th colspan="2">Product</th>
         <th>Price</th>
@@ -109,16 +119,17 @@ There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units
           </tr>
         {% endfor %}
                 <p>total : {{ cart.total_price | money }}</p>
-
       </tbody>
+  <!--  information about the current user cart END-->
 
 </div>
 </div>
->>>>>>> c
+  <!------------------------ for branch c END -------------------------------------------->
+
   
 <div>{{ product.description }}</div>
 
-
+   <!------------------------ for branch a -------------------------------------------->
  {% if product.selected_or_first_available_variant.available == false %}
 
    <style>
@@ -150,6 +161,10 @@ There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units
   </style>
 
  {% endif %}
+
+ <!------------------------ for branch a END-------------------------------------------->
+
+
 
 
 
