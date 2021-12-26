@@ -102,15 +102,15 @@ There are <span class="sd-count"><strong>{{ product_qty }}</strong></span> units
   			{% endfor %}
           <!--      for cart_index          -->
              </td>
-            <td>
+            <td style="padding-left: 20px;">
               <a href="{{ item.url }}">{{ item.product.title }}</a>
               {{ item.variant.title }}
             </td>
             <td>{{ item.price | money }}</td>
-            <td>
+            <td style="padding-left: 20px;">
               {{ item.quantity }}
             </td>
-            <td>
+            <td style="padding-left: 20px;">
               {% if item.original_line_price != item.line_price %}{{ item.original_line_price | money }}{% endif %}
               {{ item.line_price | money }}
               {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
